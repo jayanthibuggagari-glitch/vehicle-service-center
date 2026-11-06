@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - AutoCare</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #263238;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #ffbd59;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #ffbd59;
+}
+
+.banner {
+    background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 75px 20px;
+    text-align: center;
+    color: white;
+}
+
+.banner h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.gallery-title {
+    text-align: center;
+    color: #102a43;
+    margin-bottom: 25px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.gallery-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.gallery-card h3 {
+    padding: 16px;
+    color: #102a43;
+    text-align: center;
+}
+
+.form-box, .table-box {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #102a43;
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccd5df;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    color: #263238;
+}
+
+select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #ffbd59;
+    border-color: #ffbd59;
+}
+
+button {
+    background: #ff9f1c;
+    color: #102a43;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button:hover {
+    background: #f28c00;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #102a43;
+    color: white;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 40px;
+}
+
+@media(max-width: 750px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 450px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">AutoCare</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="vehicles.html">Vehicles</a>
+        <a href="services.html">Services</a>
+        <a href="payments.html">Payments</a>
+    </nav>
+</header>
+
+<section class="banner">
+    <h1>Vehicle Services</h1>
+    <p>Professional vehicle maintenance and repair services</p>
+</section>
+
+<div class="container">
+
+    <h2 class="gallery-title">Our Vehicle Services</h2>
+
+    <div class="gallery">
+
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=700&q=80"
+                 alt="Engine Repair">
+            <h3>Engine Repair</h3>
+        </div>
+
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=700&q=80"
+                 alt="Water Wash">
+            <h3>Water Wash</h3>
+        </div>
+
+        <div class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=700&q=80"
+                 alt="General Service">
+            <h3>General Service</h3>
+        </div>
+
+    </div>
+
+    <section class="form-box">
+
+        <h2>Add New Service</h2>
+
+        <form id="serviceForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Select Vehicle</label>
+
+                    <select id="vehicle_id" required>
+                        <option value="">▼ Select Vehicle</option>
+                        <option value="Royal Enfield">Royal Enfield</option>
+                        <option value="Hyundai Creta">Hyundai Creta</option>
+                        <option value="Honda Activa">Honda Activa</option>
+                        <option value="Sports Car">Sports Car</option>
+                        <option value="Luxury Car">Luxury Car</option>
+                        <option value="Modern Car">Modern Car</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Type</label>
+
+                    <select id="service_type" required>
+                        <option value="">▼ Select Service</option>
+                        <option value="General Service">General Service</option>
+                        <option value="Engine Repair">Engine Repair</option>
+                        <option value="Water Wash">Water Wash</option>
+                        <option value="Oil Change">Oil Change</option>
+                        <option value="Brake Service">Brake Service</option>
+                        <option value="Tyre Service">Tyre Service</option>
+                        <option value="Battery Service">Battery Service</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Date</label>
+                    <input type="date" id="service_date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Charge (₹)</label>
+                    <input type="number" id="service_charge"
+                           placeholder="Enter service charge"
+                           min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Status</label>
+                    <select id="status" required>
+                        <option value="">▼ Select Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="description"
+                              placeholder="Enter service description"></textarea>
+                </div>
+
+            </div>
+
+            <button type="submit">Save Service</button>
+
+        </form>
+    </section>
+
+    <section class="table-box">
+
+        <h2>Service Records</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service ID</th>
+                        <th>Vehicle ID</th>
+                        <th>Service Type</th>
+                        <th>Service Date</th>
+                        <th>Description</th>
+                        <th>Service Charge</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="serviceTableBody"></tbody>
+            </table>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 AutoCare Vehicle Service Center Management System</p>
+</footer>
+
+<script>
+
+const API_URL = "http://localhost:3000/api";
+
+let vehicleRecords = [];
+
+// Get vehicles from database
+async function loadVehicles() {
+
+    try {
+
+        const response = await fetch(API_URL + "/vehicles");
+
+        if (!response.ok) {
+            throw new Error("Unable to load vehicles");
+        }
+
+        const result = await response.json();
+
+        vehicleRecords = Array.isArray(result)
+            ? result
+            : (result.vehicles || result.data || []);
+
+    } catch (error) {
+
+        console.error("Vehicle loading error:", error);
+
+    }
+}
+
+
+// Load service records
+async function loadServices() {
+
+    const tbody = document.getElementById("serviceTableBody");
+    tbody.innerHTML = "";
+
+    try {
+
+        const response = await fetch(API_URL + "/services");
+
+        if (!response.ok) {
+            throw new Error("Unable to load services");
+        }
+
+        const result = await response.json();
+
+        const services = Array.isArray(result)
+            ? result
+            : (result.services || result.data || []);
+
+        services.forEach(service => {
+
+            const row = document.createElement("tr");
+
+            const values = [
+                service.service_id,
+                service.vehicle_id,
+                service.service_type,
+                service.service_date,
+                service.description,
+                service.service_charge,
+                service.status
+            ];
+
+            values.forEach(value => {
+
+                const cell = document.createElement("td");
+                cell.textContent = value ?? "";
+                row.appendChild(cell);
+
+            });
+
+            tbody.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Service loading error:", error);
+
+    }
+}
+
+
+// Save service
+document.getElementById("serviceForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const selectedModel =
+        document.getElementById("vehicle_id").value;
+
+    // Find actual vehicle ID using its model name
+    const selectedVehicle = vehicleRecords.find(vehicle => {
+
+        const model = String(vehicle.vehicle_model || "").toLowerCase();
+
+        return model === selectedModel.toLowerCase();
+
+    });
+
+    if (!selectedVehicle) {
+        alert(
+            selectedModel +
+            " is not registered in the database. Please register this vehicle first in the Vehicles page."
+        );
+        return;
+    }
+
+    const serviceData = {
+
+        vehicle_id: selectedVehicle.vehicle_id,
+
+        service_type: document.getElementById("service_type").value,
+
+        service_date: document.getElementById("service_date").value,
+
+        description: document.getElementById("description").value,
+
+        service_charge: document.getElementById("service_charge").value,
+
+        status: document.getElementById("status").value
+
+    };
+
+    try {
+
+        const response = await fetch(API_URL + "/services", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(serviceData)
+
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Service save failed");
+        }
+
+        alert("Service added successfully!");
+
+        document.getElementById("serviceForm").reset();
+
+        loadServices();
+
+    } catch (error) {
+
+        console.error("Save service error:", error);
+
+        alert("Unable to save service. Check server and database.");
+
+    }
+
+});
+
+
+// Load data when page opens
+loadVehicles();
+loadServices();
+
+</script>
+
+</body>
+</html>

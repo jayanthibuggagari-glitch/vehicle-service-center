@@ -1,0 +1,275 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoCare - Vehicle Service Center</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #222;
+}
+
+.navbar {
+    background: #101d35;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 27px;
+    color: white;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffb703;
+}
+
+.hero {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background: linear-gradient(90deg,
+    rgba(8,18,36,.95), rgba(8,18,36,.45)),
+    url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 620px;
+    color: white;
+}
+
+.tagline {
+    color: #ffb703;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    background: #ffb703;
+    color: #101d35;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn.secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.features {
+    padding: 65px 7%;
+    text-align: center;
+}
+
+.features h2,
+.why-us h2 {
+    color: #101d35;
+    font-size: 32px;
+}
+
+.subtitle {
+    margin-top: 12px;
+    color: #777;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px 22px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card .icon {
+    font-size: 40px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #101d35;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #777;
+    line-height: 1.6;
+}
+
+.why-us {
+    background: #e9eff8;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.why-us p {
+    margin: 20px 0 25px;
+}
+
+footer {
+    background: #101d35;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+@media(max-width: 768px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">🚗 AutoCare</div>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="vehicles.html">Vehicles</a>
+        <a href="services.html">Services</a>
+        <a href="payments.html">Payments</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h4 class="tagline">WELCOME TO AUTOCARE</h4>
+        <h1>Professional Vehicle Service Center</h1>
+
+        <p>
+            Your vehicle deserves the best care.
+            Manage vehicle registrations, service appointments
+            and payments in one place.
+        </p>
+
+        <div class="buttons">
+            <a href="services.html" class="btn">Book a Service</a>
+            <a href="about.html" class="btn secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <h2>Our Services</h2>
+    <p class="subtitle">Complete care for your vehicle</p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🔧</div>
+            <h3>General Service</h3>
+            <p>Complete vehicle inspection and maintenance.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛢️</div>
+            <h3>Oil Change</h3>
+            <p>Engine oil replacement for smooth performance.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚿</div>
+            <h3>Water Wash</h3>
+            <p>Professional vehicle cleaning and washing.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Engine Repair</h3>
+            <p>Reliable engine inspection and repair services.</p>
+        </div>
+    </div>
+</section>
+
+<section class="why-us">
+    <h2>Why Choose AutoCare?</h2>
+    <p>Easy booking, organized service records and transparent payments.</p>
+    <a href="customers.html" class="btn">Register Customer</a>
+</section>
+
+<footer>
+    <p>© 2026 AutoCare Vehicle Service Center. All Rights Reserved.</p>
+</footer>
+
+<script>
+console.log("AutoCare Vehicle Service Center Loaded Successfully!");
+</script>
+
+</body>
+</html>
+```

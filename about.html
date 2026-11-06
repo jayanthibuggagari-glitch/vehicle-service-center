@@ -1,0 +1,550 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - AutoCare</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6fa;
+    color: #222;
+}
+
+/* Navbar */
+.navbar {
+    background: #101d35;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffb703;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(rgba(10,20,40,.8), rgba(10,20,40,.8)),
+    url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1500&q=85');
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.banner h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    color: #ffb703;
+    font-size: 17px;
+}
+
+/* Who We Are */
+.who-section {
+    padding: 75px 7%;
+    background: white;
+}
+
+.who-container {
+    max-width: 1150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.who-image {
+    flex: 1;
+}
+
+.who-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.who-content {
+    flex: 1;
+}
+
+.small-title {
+    color: #e6a400;
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.who-content h2 {
+    color: #101d35;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.who-content p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.who-btn {
+    display: inline-block;
+    background: #ffb703;
+    color: #101d35;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.who-btn:hover {
+    background: #e6a400;
+}
+
+/* Mission Vision Goals */
+.mission-section {
+    padding: 70px 7%;
+    text-align: center;
+    background: #f4f6fa;
+}
+
+.section-heading {
+    color: #101d35;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.mission-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.mission-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-8px);
+}
+
+.mission-card .icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+}
+
+.mission-card h3 {
+    color: #101d35;
+    margin-bottom: 15px;
+    font-size: 23px;
+}
+
+.mission-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Services */
+.services-section {
+    padding: 70px 7%;
+    background: white;
+    text-align: center;
+}
+
+.services-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: #f4f6fa;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border-bottom: 4px solid #ffb703;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+}
+
+.service-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    color: #101d35;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Bottom Image Section */
+.bottom-section {
+    background: #172b4d;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.bottom-section h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.bottom-section p {
+    color: #ddd;
+    margin-bottom: 25px;
+}
+
+.bottom-section a {
+    display: inline-block;
+    background: #ffb703;
+    color: #101d35;
+    padding: 14px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: #101d35;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+/* Responsive */
+@media(max-width:850px) {
+
+    .who-container {
+        flex-direction: column;
+    }
+
+    .who-image img {
+        height: 300px;
+    }
+
+    .mission-container,
+    .services-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+
+    .navbar {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .banner h1 {
+        font-size: 30px;
+    }
+
+    .who-content h2 {
+        font-size: 27px;
+    }
+
+    .mission-container,
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header class="navbar">
+
+    <div class="logo">🚗 AutoCare</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="vehicles.html">Vehicles</a>
+        <a href="services.html">Services</a>
+        <a href="payments.html">Payments</a>
+    </nav>
+
+</header>
+
+<!-- Banner -->
+<section class="banner">
+
+    <h1>About AutoCare</h1>
+
+    <p>Your Trusted Vehicle Service Center</p>
+
+</section>
+
+<!-- Who We Are -->
+<section class="who-section">
+
+    <div class="who-container">
+
+        <div class="who-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1000&q=85"
+            alt="Professional automobile service workshop">
+
+        </div>
+
+        <div class="who-content">
+
+            <div class="small-title">ABOUT OUR COMPANY</div>
+
+            <h2>Who We Are</h2>
+
+            <p>
+                AutoCare is a vehicle service center management system
+                designed to make vehicle maintenance simple and convenient.
+            </p>
+
+            <p>
+                We help customers register their vehicles, book service
+                appointments and maintain service records in one place.
+            </p>
+
+            <p>
+                Our system provides information about service charges,
+                payment details and vehicle service status. We aim to
+                provide a smooth and reliable service experience.
+            </p>
+
+            <a href="services.html" class="who-btn">
+                Explore Our Services
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Mission Vision Goals -->
+<section class="mission-section">
+
+    <h2 class="section-heading">Our Mission, Vision & Goals</h2>
+
+    <div class="mission-container">
+
+        <div class="mission-card">
+
+            <div class="icon">🎯</div>
+
+            <h3>Our Mission</h3>
+
+            <p>
+                To provide reliable vehicle maintenance services and
+                make appointment booking easy for every customer.
+            </p>
+
+        </div>
+
+        <div class="mission-card">
+
+            <div class="icon">👁️</div>
+
+            <h3>Our Vision</h3>
+
+            <p>
+                To become a trusted vehicle service management platform
+                with simple, transparent and efficient services.
+            </p>
+
+        </div>
+
+        <div class="mission-card">
+
+            <div class="icon">🏆</div>
+
+            <h3>Our Goals</h3>
+
+            <p>
+                To maintain accurate customer records, track vehicle
+                services and improve customer satisfaction.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Our Services -->
+<section class="services-section">
+
+    <h2 class="section-heading">What We Provide</h2>
+
+    <div class="services-container">
+
+        <div class="service-card">
+
+            <div class="icon">🚘</div>
+
+            <h3>Vehicle Registration</h3>
+
+            <p>
+                Register customer vehicles and maintain vehicle
+                information in the database.
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon">🔧</div>
+
+            <h3>General Service</h3>
+
+            <p>
+                Manage regular vehicle servicing and maintenance
+                appointments.
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon">⚙️</div>
+
+            <h3>Engine Repair</h3>
+
+            <p>
+                Maintain engine repair details and update
+                service progress.
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon">🛢️</div>
+
+            <h3>Oil Change</h3>
+
+            <p>
+                Manage engine oil replacement and related
+                service records.
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon">💦</div>
+
+            <h3>Water Wash</h3>
+
+            <p>
+                Provide vehicle cleaning and washing
+                appointment records.
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon">💳</div>
+
+            <h3>Payment Management</h3>
+
+            <p>
+                Maintain service charges, payment methods
+                and payment status.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Bottom Section -->
+<section class="bottom-section">
+
+    <h2>Take Care of Your Vehicle with AutoCare</h2>
+
+    <p>
+        Register your vehicle and book your next service appointment easily.
+    </p>
+
+    <a href="customers.html">Register Now</a>
+
+</section>
+
+<!-- Footer -->
+<footer>
+
+    <p>
+        © 2026 AutoCare Vehicle Service Center.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
+```

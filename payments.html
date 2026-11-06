@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payments - AutoCare</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #263238;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #ffbd59;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #ffbd59;
+}
+
+.banner {
+    background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.banner h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto;
+}
+
+.form-box, .table-box {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #102a43;
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccd5df;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    color: #263238;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #ffbd59;
+    border-color: #ffbd59;
+}
+
+/* Searchable dropdown */
+.service-search-box {
+    position: relative;
+    width: 100%;
+}
+
+.service-search-box input {
+    padding-right: 48px;
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    width: 38px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: #263238;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.service-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccd5df;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,.12);
+}
+
+.service-options.show {
+    display: block;
+}
+
+.service-option {
+    padding: 14px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.service-option:hover {
+    background: #fff2dc;
+}
+
+button.save-btn {
+    background: #ff9f1c;
+    color: #102a43;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button.save-btn:hover {
+    background: #f28c00;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #102a43;
+    color: white;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 40px;
+}
+
+@media(max-width: 650px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">AutoCare</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="customers.html">Customers</a>
+        <a href="vehicles.html">Vehicles</a>
+        <a href="services.html">Services</a>
+        <a href="payments.html">Payments</a>
+    </nav>
+</header>
+
+<section class="banner">
+    <h1>Payment Management</h1>
+    <p>Manage customer service payments easily</p>
+</section>
+
+<div class="container">
+
+    <section class="form-box">
+        <h2>Add New Payment</h2>
+
+        <form id="paymentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Select Service</label>
+
+                    <div class="service-search-box">
+
+                        <input
+                            type="text"
+                            id="serviceSearch"
+                            placeholder="Search or select service..."
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="dropdown-arrow"
+                            id="dropdownArrow"
+                            aria-label="Show services"
+                        >▼</button>
+
+                        <div class="service-options" id="serviceOptions">
+
+                            <div class="service-option" data-id="2">
+                                Engine Repair
+                            </div>
+
+                            <div class="service-option" data-id="3">
+                                Water Wash
+                            </div>
+
+                            <div class="service-option" data-id="1">
+                                General Service
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="service_id">
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Amount (₹)</label>
+                    <input type="number" id="amount"
+                    placeholder="Enter payment amount"
+                    min="1" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Date</label>
+                    <input type="date" id="payment_date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select id="payment_method" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Card">Card</option>
+                        <option value="Net Banking">Net Banking</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Status</label>
+                    <select id="status" required>
+                        <option value="">Select Status</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit" class="save-btn">Save Payment</button>
+
+        </form>
+    </section>
+
+    <section class="table-box">
+        <h2>Payment Details</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Service ID</th>
+                        <th>Amount</th>
+                        <th>Payment Date</th>
+                        <th>Payment Method</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="paymentTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 AutoCare Vehicle Service Center Management System</p>
+</footer>
+
+<script>
+
+const API_URL = "http://localhost:3000/api";
+
+const searchInput = document.getElementById("serviceSearch");
+const optionsBox = document.getElementById("serviceOptions");
+const serviceIdInput = document.getElementById("service_id");
+const arrowButton = document.getElementById("dropdownArrow");
+
+// Select a service
+function selectService(name, id) {
+    searchInput.value = name;
+    serviceIdInput.value = id;
+    optionsBox.classList.remove("show");
+}
+
+// Dropdown option click
+document.querySelectorAll(".service-option").forEach(option => {
+
+    option.addEventListener("click", function() {
+        selectService(
+            this.textContent.trim(),
+            this.dataset.id
+        );
+    });
+
+});
+
+// Search services
+searchInput.addEventListener("input", function() {
+
+    serviceIdInput.value = "";
+
+    const searchText = this.value.toLowerCase();
+    const options = document.querySelectorAll(".service-option");
+
+    let found = 0;
+
+    options.forEach(option => {
+
+        const name = option.textContent.trim().toLowerCase();
+
+        if (name.includes(searchText)) {
+            option.style.display = "block";
+            found++;
+        } else {
+            option.style.display = "none";
+        }
+
+    });
+
+    let noResult = document.getElementById("noResult");
+
+    if (noResult) noResult.remove();
+
+    if (found === 0) {
+        const message = document.createElement("div");
+        message.id = "noResult";
+        message.className = "service-option";
+        message.textContent = "No Matching Services Found";
+        optionsBox.appendChild(message);
+    }
+
+    optionsBox.classList.add("show");
+
+});
+
+// Dropdown arrow click
+arrowButton.addEventListener("click", function() {
+
+    const isOpen = optionsBox.classList.contains("show");
+
+    if (isOpen) {
+        optionsBox.classList.remove("show");
+    } else {
+
+        searchInput.value = "";
+        serviceIdInput.value = "";
+
+        document.querySelectorAll(".service-option").forEach(option => {
+            option.style.display = "block";
+        });
+
+        const noResult = document.getElementById("noResult");
+        if (noResult) noResult.remove();
+
+        optionsBox.classList.add("show");
+        searchInput.focus();
+    }
+
+});
+
+// Open dropdown when search input is clicked
+searchInput.addEventListener("focus", function() {
+    optionsBox.classList.add("show");
+});
+
+// Close dropdown outside
+document.addEventListener("click", function(event) {
+
+    if (!event.target.closest(".service-search-box")) {
+        optionsBox.classList.remove("show");
+    }
+
+});
+
+// Load payment details
+async function loadPayments() {
+
+    const tbody = document.getElementById("paymentTableBody");
+    tbody.innerHTML = "";
+
+    try {
+
+        const response = await fetch(API_URL + "/payments");
+
+        if (!response.ok) {
+            throw new Error("Unable to load payments");
+        }
+
+        const result = await response.json();
+
+        const payments = Array.isArray(result)
+            ? result
+            : (result.payments || result.data || []);
+
+        payments.forEach(payment => {
+
+            const row = document.createElement("tr");
+
+            const values = [
+                payment.payment_id ?? payment.id,
+                payment.service_id,
+                payment.amount,
+                payment.payment_date,
+                payment.payment_method,
+                payment.status
+            ];
+
+            values.forEach(value => {
+                const cell = document.createElement("td");
+                cell.textContent = value ?? "";
+                row.appendChild(cell);
+            });
+
+            tbody.appendChild(row);
+
+        });
+
+    } catch (error) {
+        console.error("Payment loading error:", error);
+    }
+}
+
+// Save payment
+document.getElementById("paymentForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    if (!serviceIdInput.value) {
+        alert("Please select a service from the dropdown.");
+        return;
+    }
+
+    const paymentData = {
+        service_id: serviceIdInput.value,
+        amount: document.getElementById("amount").value,
+        payment_date: document.getElementById("payment_date").value,
+        payment_method: document.getElementById("payment_method").value,
+        status: document.getElementById("status").value
+    };
+
+    try {
+
+        const response = await fetch(API_URL + "/payments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(paymentData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Payment save failed");
+        }
+
+        alert("Payment saved successfully!");
+
+        document.getElementById("paymentForm").reset();
+        serviceIdInput.value = "";
+
+        loadPayments();
+
+    } catch (error) {
+        console.error(error);
+        alert("Unable to save payment. Check server and database.");
+    }
+
+});
+
+loadPayments();
+
+</script>
+
+</body>
+</html>
